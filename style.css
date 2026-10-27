@@ -1,0 +1,440 @@
+:root {
+    --bg-color: #79a3cf;
+    --text-primary: #ffffff;
+    --text-dark: #2c3e50;
+    --accent-blue: #4a7bb0;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    font-family: "Montserrat", sans-serif;
+    color: var(--text-primary);
+    background-color: #4a86ba;
+    overscroll-behavior-y: none;
+    transition: background-color 0.5s ease;
+}
+
+body {
+    overflow-x: hidden;
+    background-color: #4a86ba;
+    overscroll-behavior-y: none;
+    transition: background-color 0.5s ease;
+}
+
+/* TOP BAR (Header Utama) */
+.top-bar {
+    position: fixed;
+    top: 24px;
+    left: 0;
+    width: 100%;
+    padding: 0 48px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 100;
+}
+
+.location-badge {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px; /* Memperbesar ukuran font */
+    font-weight: 700;
+    letter-spacing: 1px;
+    color: #ffffff;
+    text-shadow: 0 2px 8px rgba(15, 23, 42, 0.4);
+}
+
+.location-badge i {
+    font-size: 14px; /* Memperbesar ikon pin */
+}
+
+.theme-icon {
+    width: 44px; /* Memperbesar ukuran lingkaran tombol */
+    height: 44px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.4);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #ffffff;
+    font-size: 16px; /* Memperbesar ikon matahari/bulan */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    cursor: pointer;
+    transition:
+        transform 0.3s ease,
+        background-color 0.3s ease;
+}
+
+.theme-icon:hover {
+    transform: scale(1.08);
+}
+
+/* FLOATING ISLAND NAVBAR */
+.navbar {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 6px 8px 6px 12px;
+    background: rgba(255, 255, 255, 0.35);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    border-radius: 999px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.nav-avatar img {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.nav-links {
+    display: flex;
+    gap: 24px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    font-size: 13.5px; /* Memperbesar font link */
+    font-weight: 600;
+    color: #ffffff;
+    text-shadow: 0 1px 4px rgba(15, 23, 42, 0.3);
+    transition: opacity 0.2s;
+}
+
+.nav-links a:hover {
+    opacity: 0.8;
+}
+
+/* TOMBOL WORK WITH ME */
+.btn-work {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 22px; /* Membuat tombol lebih luas */
+    background: #ffffff;
+    color: #2b3a4a;
+    border-radius: 999px;
+    text-decoration: none;
+    font-size: 12.5px; /* Memperbesar font tombol */
+    font-weight: 700;
+    transition:
+        transform 0.2s,
+        box-shadow 0.2s;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.btn-work:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+}
+
+.hero-section {
+    position: relative;
+    height: 100vh !important;
+    height: 100svh !important;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    overflow: hidden;
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
+#vanta-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 0 !important;
+    padding-top: 40px; /* Jarak aman agar tidak tertutup navbar */
+}
+
+.hero-greeting {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    color: #ffffff;
+    margin-bottom: 16px;
+    text-transform: uppercase;
+    text-shadow: 0 2px 8px rgba(15, 23, 42, 0.4);
+}
+
+/* TYPOGRAPHY SERIF AESTHETIC */
+.hero-title {
+    font-family: "Playfair Display", serif;
+    font-size: clamp(52px, 8vw, 92px);
+    font-weight: 700;
+    line-height: 1;
+    color: #ffffff; /* Mengubah warna menjadi putih murni */
+    margin-bottom: 40px;
+    /* Drop shadow berlapis agar teks putih tetap terbaca jelas */
+    text-shadow:
+        0 4px 18px rgba(15, 23, 42, 0.5),
+        0 2px 6px rgba(15, 23, 42, 0.35);
+}
+
+.hero-title em {
+    font-style: italic;
+    font-weight: 700;
+    color: #ffffff;
+}
+
+/* RETRO CASSETTE MUSIC PLAYER WIDGET */
+.audio-player-card {
+    width: 390px;
+    height: 94px;
+    /* Warna Cream Warm Off-White dengan Efek Glassmorphism Transparan */
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.75) 0%, rgba(241, 245, 249, 0.6) 100%);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+    /* Border halus berkilau */
+    border: 1.5px solid rgba(255, 255, 255, 0.85);
+    border-radius: 999px;
+    padding: 10px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    /* Shadow lembut 3D */
+    box-shadow:
+        0 20px 40px rgba(15, 23, 42, 0.15),
+        inset 0 1px 2px rgba(255, 255, 255, 0.9);
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+.audio-player-card:hover {
+    transform: translateY(-3px);
+    box-shadow:
+        0 24px 48px rgba(15, 23, 42, 0.2),
+        inset 0 1px 2px rgba(255, 255, 255, 1);
+}
+
+.cassette-wheel {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    /* Pattern Roda Kaset Retro Metalik */
+    background: radial-gradient(circle, #0f172a 32%, #334155 33%, #1e293b 55%, #0f172a 56%);
+    border: 3px solid #cbd5e1;
+    box-shadow:
+        0 4px 8px rgba(0, 0, 0, 0.2),
+        inset 0 0 6px rgba(0, 0, 0, 0.5);
+    transition: transform 0.5s linear;
+}
+
+.cassette-wheel.spinning {
+    animation: spin 3s linear infinite;
+}
+
+@keyframes spin {
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/* INFORMASI LAGU */
+.player-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2px;
+}
+
+.song-title {
+    font-size: 11.5px;
+    font-weight: 700;
+    color: #0f172a;
+    letter-spacing: 0.2px;
+}
+
+.song-artist {
+    font-size: 9.5px;
+    font-weight: 500;
+    color: #475569;
+}
+
+/* KONTROL & TOMBOL PLAY */
+.player-controls {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-top: 5px;
+}
+
+.time-display {
+    font-size: 9.5px;
+    font-weight: 600;
+    color: #475569;
+    width: 26px;
+    text-align: center;
+}
+
+.play-btn {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background: #0f172a;
+    color: #ffffff;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 11px;
+    box-shadow: 0 4px 10px rgba(15, 23, 42, 0.3);
+    transition:
+        transform 0.2s ease,
+        background 0.2s ease;
+}
+
+.play-btn:hover {
+    transform: scale(1.12);
+    background: #1e293b;
+}
+
+.player-caption {
+    font-size: 11px;
+    color: #ffffff;
+    margin-top: 14px;
+    font-weight: 600;
+    text-shadow: 0 2px 6px rgba(15, 23, 42, 0.4);
+}
+
+/* OTHER SECTIONS */
+.section {
+    padding: 100px 48px;
+    min-height: 80vh;
+    background: #0f1216;
+}
+
+@media (max-width: 768px) {
+    .top-bar {
+        padding: 0 20px;
+    }
+    .location-badge,
+    .theme-icon {
+        display: none;
+    }
+    .audio-player-card {
+        width: 320px;
+        padding: 10px 16px;
+    }
+}
+
+.theme-icon {
+    cursor: pointer;
+    transition:
+        transform 0.3s ease,
+        background-color 0.3s ease,
+        border-color 0.3s ease;
+}
+
+.theme-icon:hover {
+    transform: scale(1.1);
+}
+
+body.night-theme {
+    background-color: #0b132b;
+}
+
+body.night-theme .location-badge {
+    color: #f8fafc;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.7);
+}
+
+body.night-theme .theme-icon {
+    background: rgba(15, 23, 42, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: #f1f5f9;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+body.night-theme .navbar {
+    background: rgba(15, 23, 42, 0.55);
+    border-color: rgba(255, 255, 255, 0.15);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+body.night-theme .nav-links a {
+    color: #f8fafc;
+    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.5);
+}
+
+body.night-theme .btn-work {
+    background: #f8fafc;
+    color: #0f172a;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+/* 2. Audio Player Widget Mode Malam (Dark Glassmorphic) */
+body.night-theme .audio-player-card {
+    background: linear-gradient(135deg, rgba(30, 41, 59, 0.75) 0%, rgba(15, 23, 42, 0.65) 100%);
+    border-color: rgba(255, 255, 255, 0.18);
+    box-shadow:
+        0 20px 40px rgba(0, 0, 0, 0.4),
+        inset 0 1px 2px rgba(255, 255, 255, 0.15);
+}
+
+body.night-theme .song-title {
+    color: #f8fafc;
+}
+
+body.night-theme .song-artist,
+body.night-theme .time-display {
+    color: #94a3b8;
+}
+
+body.night-theme .play-btn {
+    background: #f8fafc;
+    color: #0f172a;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+body.night-theme .play-btn:hover {
+    background: #e2e8f0;
+}
+
+body.night-theme .cassette-wheel {
+    border-color: #475569;
+}
+
+/* 3. Text Shadow Ekstra Judul Mode Malam */
+body.night-theme .hero-title {
+    text-shadow:
+        0 4px 24px rgba(0, 0, 0, 0.85),
+        0 2px 8px rgba(0, 0, 0, 0.6);
+}
+
+body.night-theme .hero-greeting,
+body.night-theme .player-caption {
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.7);
+}

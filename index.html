@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>RenPort — Rendy Anggara</title>
+        <!-- Google Fonts: Playfair Display (Serif Aesthetic) & Montserrat -->
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap"
+            rel="stylesheet"
+        />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+        <link rel="stylesheet" href="style.css" />
+    </head>
+    <body>
+        <!-- Top Navigation -->
+        <header class="top-bar">
+            <!-- Lokasi Kiri -->
+            <div class="location-badge"><i class="fa-solid fa-location-dot"></i> KARAWANG, ID</div>
+
+            <!-- Floating Island Navbar -->
+            <nav class="navbar">
+                <div class="nav-avatar">
+                    <img
+                        src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=200&auto=format&fit=crop"
+                        alt="Rendy"
+                    />
+                </div>
+                <div class="nav-links" id="primary-navigation">
+                    <a href="#home" class="active">Work</a>
+                    <a href="#about">About</a>
+                    <a href="#project">Project</a>
+                    <a href="#skills">Skills</a>
+                </div>
+                <a href="#contact" class="btn-work"> <i class="fa-solid fa-envelope"></i> Work with me </a>
+            </nav>
+
+            <!-- Mode / Accent Icon Kanan (Sudah ditambah ID theme-toggle & theme-icon-i) -->
+            <button class="theme-icon" id="theme-toggle" aria-label="Toggle Theme">
+                <i class="fa-solid fa-sun" id="theme-icon-i"></i>
+            </button>
+        </header>
+
+        <!-- Section 1: Hero (Cloud Theme & Retro Player) -->
+        <section id="home" class="section hero-section">
+            <div id="vanta-bg"></div>
+
+            <div class="hero-content">
+                <p class="hero-greeting">HELLO, I'M RENDY</p>
+                <h1 class="hero-title">Developer who<br /><em>Codes</em></h1>
+
+                <!-- Retro Audio Player Widget -->
+                <div class="audio-player-card">
+                    <audio id="bg-audio" src="music.mp3"></audio>
+                    <!-- Ganti file lagu kamu di sini -->
+                    <div class="cassette-wheel left" id="wheel-left"></div>
+                    <div class="player-info">
+                        <span class="song-title">Sekian, Terima Kasih</span>
+                        <span class="song-artist">Lestari & The Feelings</span>
+                        <div class="player-controls">
+                            <span class="time-display" id="current-time">0:00</span>
+                            <button class="play-btn" id="play-pause-btn" aria-label="Play/Pause">
+                                <i class="fa-solid fa-play" id="play-icon"></i>
+                            </button>
+                            <span class="time-display" id="duration-time">-:--</span>
+                        </div>
+                    </div>
+                    <div class="cassette-wheel right" id="wheel-right"></div>
+                </div>
+                <p class="player-caption">A little music, while you explore</p>
+            </div>
+        </section>
+
+        <!-- Section 2: About -->
+        <section id="about" class="section about-section">
+            <div class="about-container">
+                <div class="about-content">
+                    <h2 class="section-title">ABOUT</h2>
+                    <p class="about-bio">
+                        Saya mahasiswa Teknik Informatika UBP Karawang sekaligus pengembang full-stack yang berfokus
+                        pada aplikasi web dan mobile menggunakan Laravel, React, Next.js, Ionic, Angular, Tailwind CSS,
+                        MySQL, Git, serta Docker.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 4: Contact (Section Paling Bawah) -->
+        <section id="contact" class="section contact-section">
+            <h2>Get In Touch</h2>
+            <p>Let's build something awesome together!</p>
+        </section>
+
+        <!-- Scripts -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.clouds.min.js"></script>
+        <script src="script.js"></script>
+    </body>
+</html>
