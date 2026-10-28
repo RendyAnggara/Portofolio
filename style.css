@@ -44,7 +44,7 @@ body {
     display: flex;
     align-items: center;
     gap: 8px;
-    font-size: 13px; /* Memperbesar ukuran font */
+    font-size: 13px;
     font-weight: 700;
     letter-spacing: 1px;
     color: #ffffff;
@@ -52,11 +52,11 @@ body {
 }
 
 .location-badge i {
-    font-size: 14px; /* Memperbesar ikon pin */
+    font-size: 14px;
 }
 
 .theme-icon {
-    width: 44px; /* Memperbesar ukuran lingkaran tombol */
+    width: 44px;
     height: 44px;
     border-radius: 50%;
     background: rgba(255, 255, 255, 0.4);
@@ -67,7 +67,7 @@ body {
     align-items: center;
     justify-content: center;
     color: #ffffff;
-    font-size: 16px; /* Memperbesar ikon matahari/bulan */
+    font-size: 16px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
     cursor: pointer;
     transition:
@@ -110,7 +110,7 @@ body {
 
 .nav-links a {
     text-decoration: none;
-    font-size: 13.5px; /* Memperbesar font link */
+    font-size: 13.5px;
     font-weight: 600;
     color: #ffffff;
     text-shadow: 0 1px 4px rgba(15, 23, 42, 0.3);
@@ -126,12 +126,12 @@ body {
     display: flex;
     align-items: center;
     gap: 8px;
-    padding: 10px 22px; /* Membuat tombol lebih luas */
+    padding: 10px 22px;
     background: #ffffff;
     color: #2b3a4a;
     border-radius: 999px;
     text-decoration: none;
-    font-size: 12.5px; /* Memperbesar font tombol */
+    font-size: 12.5px;
     font-weight: 700;
     transition:
         transform 0.2s,
@@ -153,9 +153,36 @@ body {
     justify-content: center;
     align-items: center;
     text-align: center;
-    overflow: hidden;
+    overflow: visible !important;
     padding: 0 !important;
     margin: 0 !important;
+}
+
+.hero-section::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 140px; /* Area peleburan awan ke section About */
+    z-index: 2;
+    pointer-events: none;
+    background: linear-gradient(
+        to bottom,
+        rgba(74, 134, 186, 0) 0%,
+        rgba(74, 134, 186, 0.5) 50%,
+        rgba(74, 134, 186, 0.95) 100%
+    );
+    transition: background 0.5s ease;
+}
+
+body.night-theme .hero-section::after {
+    background: linear-gradient(
+        to bottom,
+        rgba(11, 19, 43, 0) 0%,
+        rgba(11, 19, 43, 0.5) 50%,
+        rgba(11, 19, 43, 0.95) 100%
+    );
 }
 
 #vanta-bg {
@@ -174,7 +201,7 @@ body {
     flex-direction: column;
     align-items: center;
     margin-top: 0 !important;
-    padding-top: 40px; /* Jarak aman agar tidak tertutup navbar */
+    padding-top: 40px;
 }
 
 .hero-greeting {
@@ -187,15 +214,13 @@ body {
     text-shadow: 0 2px 8px rgba(15, 23, 42, 0.4);
 }
 
-/* TYPOGRAPHY SERIF AESTHETIC */
 .hero-title {
     font-family: "Playfair Display", serif;
     font-size: clamp(52px, 8vw, 92px);
     font-weight: 700;
     line-height: 1;
-    color: #ffffff; /* Mengubah warna menjadi putih murni */
+    color: #ffffff;
     margin-bottom: 40px;
-    /* Drop shadow berlapis agar teks putih tetap terbaca jelas */
     text-shadow:
         0 4px 18px rgba(15, 23, 42, 0.5),
         0 2px 6px rgba(15, 23, 42, 0.35);
@@ -211,18 +236,15 @@ body {
 .audio-player-card {
     width: 390px;
     height: 94px;
-    /* Warna Cream Warm Off-White dengan Efek Glassmorphism Transparan */
     background: linear-gradient(135deg, rgba(255, 255, 255, 0.75) 0%, rgba(241, 245, 249, 0.6) 100%);
     backdrop-filter: blur(18px);
     -webkit-backdrop-filter: blur(18px);
-    /* Border halus berkilau */
     border: 1.5px solid rgba(255, 255, 255, 0.85);
     border-radius: 999px;
     padding: 10px 24px;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    /* Shadow lembut 3D */
     box-shadow:
         0 20px 40px rgba(15, 23, 42, 0.15),
         inset 0 1px 2px rgba(255, 255, 255, 0.9);
@@ -242,7 +264,6 @@ body {
     width: 48px;
     height: 48px;
     border-radius: 50%;
-    /* Pattern Roda Kaset Retro Metalik */
     background: radial-gradient(circle, #0f172a 32%, #334155 33%, #1e293b 55%, #0f172a 56%);
     border: 3px solid #cbd5e1;
     box-shadow:
@@ -261,7 +282,6 @@ body {
     }
 }
 
-/* INFORMASI LAGU */
 .player-info {
     display: flex;
     flex-direction: column;
@@ -282,7 +302,6 @@ body {
     color: #475569;
 }
 
-/* KONTROL & TOMBOL PLAY */
 .player-controls {
     display: flex;
     align-items: center;
@@ -329,11 +348,241 @@ body {
     text-shadow: 0 2px 6px rgba(15, 23, 42, 0.4);
 }
 
-/* OTHER SECTIONS */
-.section {
-    padding: 100px 48px;
-    min-height: 80vh;
-    background: #0f1216;
+/* ==========================================
+   SECTION ABOUT (TRANSPARENT & GLOWING CLOUDS)
+   ========================================== */
+
+.about-section {
+    position: relative;
+    min-height: calc(100vh + 100px);
+    min-height: calc(100svh + 100px);
+    padding: 160px 48px 100px 48px;
+    margin-top: -120px; /* Offset tumpukan ke Hero */
+    z-index: 2;
+    display: flex;
+    justify-content: center;
+    align-items: center; /* Memastikan konten persis di tengah vertikal */
+    background: transparent !important;
+    overflow: hidden;
+}
+
+/* OVERLAY BLUR & GRADIENT SINKRON (z-index: 1) */
+.about-section::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    /* Warna 0% (atas) disamakan persis dengan warna langit Vanta (#4a86ba) */
+    background: linear-gradient(
+        180deg,
+        rgba(74, 134, 186, 0) 0%,
+        rgba(74, 134, 186, 0.7) 20%,
+        rgba(104, 176, 216, 0.9) 60%,
+        #79a3cf 100%
+    );
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    transition: background 0.5s ease;
+}
+
+/* HIASAN AWAN AMBIENT GLOWING (z-index: 2) */
+.cloud-glow {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(40px);
+    pointer-events: none;
+    z-index: 2; /* Di atas overlay blur, di bawah kartu */
+    opacity: 0.9;
+    transition:
+        background 0.5s ease,
+        opacity 0.5s ease;
+}
+
+.cloud-glow-1 {
+    top: 8%;
+    left: 2%;
+    width: 440px;
+    height: 440px;
+    background: radial-gradient(
+        circle,
+        rgba(255, 255, 255, 0.95) 0%,
+        rgba(186, 230, 253, 0.6) 40%,
+        rgba(125, 211, 252, 0) 70%
+    );
+    animation: floatCloud 8s ease-in-out infinite alternate;
+}
+
+.cloud-glow-2 {
+    bottom: 5%;
+    right: 2%;
+    width: 480px;
+    height: 480px;
+    background: radial-gradient(
+        circle,
+        rgba(255, 255, 255, 0.9) 0%,
+        rgba(147, 197, 253, 0.55) 40%,
+        rgba(96, 165, 250, 0) 70%
+    );
+    animation: floatCloud 10s ease-in-out infinite alternate-reverse;
+}
+
+@keyframes floatCloud {
+    0% {
+        transform: translate(0, 0) scale(1);
+    }
+    100% {
+        transform: translate(25px, -15px) scale(1.05);
+    }
+}
+
+/* KONTEN UTAMA ABOUT (z-index: 3) */
+.about-container {
+    position: relative;
+    z-index: 3;
+    max-width: 1100px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+.section-tag {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    color: #ffe600;
+    text-transform: uppercase;
+    text-shadow: 0 2px 6px rgba(15, 23, 42, 0.3);
+}
+
+.section-title {
+    font-family: "Playfair Display", serif;
+    font-size: clamp(28px, 4vw, 42px);
+    font-weight: 700;
+    color: #ffffff;
+    line-height: 1.2;
+    text-shadow: 0 4px 16px rgba(15, 23, 42, 0.4);
+}
+
+.about-grid {
+    display: grid;
+    grid-template-columns: 320px 1fr;
+    gap: 32px;
+}
+
+.about-card {
+    background: rgba(255, 255, 255, 0.35);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1.5px solid rgba(255, 255, 255, 0.6);
+    border-radius: 24px;
+    padding: 32px;
+    box-shadow: 0 15px 35px rgba(15, 23, 42, 0.1);
+    transition:
+        transform 0.3s ease,
+        background 0.3s ease,
+        border-color 0.3s ease;
+}
+
+.about-card:hover {
+    transform: translateY(-4px);
+    background: rgba(255, 255, 255, 0.45);
+    border-color: rgba(255, 255, 255, 0.8);
+}
+
+.profile-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 16px;
+}
+
+.profile-image-wrapper {
+    width: 110px;
+    height: 110px;
+    border-radius: 50%;
+    padding: 3px;
+    background: linear-gradient(135deg, #ffffff 0%, #cbd5e1 100%);
+    box-shadow: 0 8px 20px rgba(15, 23, 42, 0.15);
+}
+
+.profile-image-wrapper img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.profile-name {
+    font-size: 19px;
+    font-weight: 700;
+    color: #0f172a;
+}
+
+.status-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 14px;
+    background: rgba(15, 23, 42, 0.08);
+    border: 1px solid rgba(15, 23, 42, 0.12);
+    border-radius: 999px;
+    font-size: 11.5px;
+    font-weight: 600;
+    color: #1e293b;
+}
+
+.status-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background-color: #16a34a;
+    box-shadow: 0 0 6px #16a34a;
+}
+
+.bio-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.bio-text {
+    font-size: 14.5px;
+    line-height: 1.75;
+    color: #1e293b;
+    font-weight: 500;
+}
+
+.tech-stack-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 8px;
+}
+
+.tech-tag {
+    padding: 6px 14px;
+    background: rgba(255, 255, 255, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.8);
+    border-radius: 999px;
+    font-size: 12px;
+    font-weight: 700;
+    color: #0f172a;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+    transition:
+        transform 0.2s,
+        background 0.2s;
+}
+
+.tech-tag:hover {
+    transform: translateY(-2px);
+    background: #ffffff;
+    color: #0284c7;
 }
 
 @media (max-width: 768px) {
@@ -348,19 +597,14 @@ body {
         width: 320px;
         padding: 10px 16px;
     }
+    .about-grid {
+        grid-template-columns: 1fr;
+    }
 }
 
-.theme-icon {
-    cursor: pointer;
-    transition:
-        transform 0.3s ease,
-        background-color 0.3s ease,
-        border-color 0.3s ease;
-}
-
-.theme-icon:hover {
-    transform: scale(1.1);
-}
+/* ==========================================
+   SUPPORT MODE MALAM
+   ========================================== */
 
 body.night-theme {
     background-color: #0b132b;
@@ -395,7 +639,6 @@ body.night-theme .btn-work {
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
 }
 
-/* 2. Audio Player Widget Mode Malam (Dark Glassmorphic) */
 body.night-theme .audio-player-card {
     background: linear-gradient(135deg, rgba(30, 41, 59, 0.75) 0%, rgba(15, 23, 42, 0.65) 100%);
     border-color: rgba(255, 255, 255, 0.18);
@@ -427,7 +670,6 @@ body.night-theme .cassette-wheel {
     border-color: #475569;
 }
 
-/* 3. Text Shadow Ekstra Judul Mode Malam */
 body.night-theme .hero-title {
     text-shadow:
         0 4px 24px rgba(0, 0, 0, 0.85),
@@ -437,4 +679,57 @@ body.night-theme .hero-title {
 body.night-theme .hero-greeting,
 body.night-theme .player-caption {
     text-shadow: 0 2px 8px rgba(0, 0, 0, 0.7);
+}
+
+/* OVERLAY MODE MALAM (SINKRON DENGAN AWAN) */
+body.night-theme .about-section::before {
+    background: linear-gradient(
+        180deg,
+        rgba(11, 19, 43, 0) 0%,
+        rgba(11, 19, 43, 0.75) 20%,
+        rgba(15, 23, 42, 0.95) 60%,
+        #080d1a 100%
+    );
+}
+
+body.night-theme .cloud-glow-1 {
+    background: radial-gradient(
+        circle,
+        rgba(56, 189, 248, 0.45) 0%,
+        rgba(30, 58, 138, 0.3) 45%,
+        rgba(15, 23, 42, 0) 75%
+    );
+    opacity: 0.95;
+}
+
+body.night-theme .cloud-glow-2 {
+    background: radial-gradient(
+        circle,
+        rgba(129, 140, 248, 0.4) 0%,
+        rgba(30, 27, 75, 0.35) 45%,
+        rgba(15, 23, 42, 0) 75%
+    );
+    opacity: 0.95;
+}
+
+body.night-theme .about-card {
+    background: linear-gradient(135deg, rgba(30, 41, 59, 0.75) 0%, rgba(15, 23, 42, 0.65) 100%);
+    border-color: rgba(255, 255, 255, 0.15);
+}
+
+body.night-theme .profile-name,
+body.night-theme .bio-text {
+    color: #f8fafc;
+}
+
+body.night-theme .status-pill {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.2);
+    color: #e2e8f0;
+}
+
+body.night-theme .tech-tag {
+    background: rgba(15, 23, 42, 0.6);
+    border-color: rgba(255, 255, 255, 0.15);
+    color: #f8fafc;
 }
