@@ -72,7 +72,7 @@ function CommandOutputWithPacman({ item, onRunCommand }: { item: HistoryItem; on
                 duration: isWindowTile ? 0.22 : 0.18,
                 ease: [0.22, 1, 0.36, 1],
             }}
-            className="w-full"
+            className="w-full min-w-0"
         >
             {(() => {
                 switch (item.type) {
@@ -475,9 +475,9 @@ export function TerminalWindow() {
                 {/* Main Scrollable Terminal Body (Left-Aligned Container) */}
                 <div
                     ref={scrollContainerRef}
-                    className="flex-1 min-h-0 overflow-y-auto overscroll-contain px-3 sm:px-6 py-4 sm:py-6"
+                    className="flex-1 min-h-0 overflow-y-auto overflow-x-hidden overscroll-contain px-3 sm:px-6 py-4 sm:py-6"
                 >
-                    <div className="max-w-full w-full text-left space-y-5 sm:space-y-6">
+                    <div className="max-w-full w-full min-w-0 text-left space-y-5 sm:space-y-6">
                         {/* Startup Note: Rekomendasi Laptop vs HP */}
                         <AnimatePresence initial={false}>
                             {showDeviceNote && (
@@ -515,7 +515,7 @@ export function TerminalWindow() {
                                     initial={{ opacity: 0, y: 10 }}
                                     animate={{ opacity: 1, y: 0 }}
                                     transition={{ duration: 0.22 }}
-                                    className="space-y-2.5"
+                                    className="space-y-2.5 min-w-0"
                                 >
                                     {/* Prompt Line */}
                                     <div className="flex items-center justify-between gap-2 font-mono text-xs border-b border-dashed border-slate-200/80 dark:border-slate-800/80 pb-1.5">
@@ -533,7 +533,7 @@ export function TerminalWindow() {
                                     </div>
 
                                     {/* Output Body */}
-                                    <div className="text-left w-full">{renderOutput(item)}</div>
+                                    <div className="text-left w-full min-w-0">{renderOutput(item)}</div>
                                 </motion.div>
                             ))}
                         </AnimatePresence>
