@@ -189,15 +189,18 @@ export function TerminalWindow() {
     }, []);
 
     useEffect(() => {
+        if (!scrollContainerRef.current) return;
+
         // Saat awal buka / hanya berisi init-guide, biarkan scroll tetap di paling atas
         if (history.length <= 1 && history[0]?.id === "init-guide") {
-            if (scrollContainerRef.current) {
-                scrollContainerRef.current.scrollTop = 0;
-            }
+            scrollContainerRef.current.scrollTop = 0;
             return;
         }
 
-        bottomRef.current?.scrollIntoView({ behavior: "smooth" });
+        scrollContainerRef.current.scrollTo({
+            top: scrollContainerRef.current.scrollHeight,
+            behavior: "smooth",
+        });
     }, [history]);
 
     const handleCommand = (rawInput: string) => {
@@ -348,9 +351,9 @@ export function TerminalWindow() {
     return (
         <>
             {showSplash && <SplashScreen durationMs={1350} onFinish={() => setShowSplash(false)} />}
-            <div className="w-full h-dvh max-h-dvh flex flex-col bg-slate-50 dark:bg-[#0B0F17] bg-dot-grid overflow-hidden overscroll-none transition-colors duration-300">
+            <div className="fixed inset-0 w-full flex flex-col bg-slate-50 dark:bg-[#0B0F17] bg-dot-grid overflow-hidden transition-colors duration-300">
                 {/* Top Window Header Bar */}
-                <header className="flex flex-col md:flex-row md:items-center md:justify-between gap-2 px-3 sm:px-4 py-2 border-b border-slate-200 dark:border-slate-800/90 bg-white/90 dark:bg-[#11161F]/95 backdrop-blur-md select-none z-10">
+                <header className="shrink-0 flex flex-col md:flex-row md:items-center md:justify-between gap-2 px-3 sm:px-4 py-2 border-b border-slate-200 dark:border-slate-800/90 bg-white/90 dark:bg-[#11161F]/95 backdrop-blur-md select-none z-10">
                     {/* Baris Atas: Traffic Lights + Session Path + Action Controls */}
                     <div className="flex items-center justify-between gap-2">
                         <div className="flex items-center gap-2.5 min-w-0">
@@ -408,7 +411,7 @@ export function TerminalWindow() {
                     </div>
 
                     {/* Menu Navigasi Cepat + Desktop Utility Controls */}
-                    <div className="flex items-center justify-between md:justify-end gap-1 overflow-x-auto max-w-full py-0.5">
+                    <div className="flex items-center justify-between md:justify-end gap-1 overflow-x-auto max-w-full py-0.5 min-w-0">
                         <div className="flex items-center gap-1">
                             {QUICK_MENU.map(item => {
                                 const isActive = activeSection === item.cmd;
@@ -548,7 +551,7 @@ export function TerminalWindow() {
                 </div>
 
                 {/* Bottom Tmux / Neovim Style Status Bar */}
-                <footer className="px-3 sm:px-4 pt-1.5 pb-[max(0.375rem,env(safe-area-inset-bottom))] border-t border-slate-200 dark:border-slate-800 bg-white/95 dark:bg-[#11161F] font-mono text-[10px] sm:text-[11px] flex items-center justify-between gap-2 text-slate-500 dark:text-slate-400 select-none">
+                <footer className="shrink-0 px-3 sm:px-4 pt-1.5 pb-[max(0.375rem,env(safe-area-inset-bottom))] border-t border-slate-200 dark:border-slate-800 bg-white/95 dark:bg-[#11161F] font-mono text-[10px] sm:text-[11px] flex items-center justify-between gap-2 text-slate-500 dark:text-slate-400 select-none">
                     <div className="flex items-center gap-2 sm:gap-3 min-w-0">
                         <span className="px-2 py-0.5 rounded bg-emerald-600 text-white font-bold tracking-wider text-[10px] shrink-0">
                             {activeSection === "game" ? "GAME" : "NORMAL"}
