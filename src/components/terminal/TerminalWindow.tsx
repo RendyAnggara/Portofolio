@@ -545,7 +545,7 @@ export function TerminalWindow() {
                 </div>
 
                 {/* Bottom Tmux / Neovim Style Status Bar */}
-                <footer className="px-3 sm:px-4 py-1.5 border-t border-slate-200 dark:border-slate-800 bg-white/95 dark:bg-[#11161F] font-mono text-[10px] sm:text-[11px] flex items-center justify-between gap-2 text-slate-500 dark:text-slate-400 select-none">
+                <footer className="px-3 sm:px-4 pt-1.5 pb-[max(0.375rem,env(safe-area-inset-bottom))] border-t border-slate-200 dark:border-slate-800 bg-white/95 dark:bg-[#11161F] font-mono text-[10px] sm:text-[11px] flex items-center justify-between gap-2 text-slate-500 dark:text-slate-400 select-none">
                     <div className="flex items-center gap-2 sm:gap-3 min-w-0">
                         <span className="px-2 py-0.5 rounded bg-emerald-600 text-white font-bold tracking-wider text-[10px] shrink-0">
                             {activeSection === "game" ? "GAME" : "NORMAL"}
