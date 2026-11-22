@@ -348,7 +348,7 @@ export function TerminalWindow() {
     return (
         <>
             {showSplash && <SplashScreen durationMs={1350} onFinish={() => setShowSplash(false)} />}
-            <div className="w-full h-dvh flex flex-col bg-slate-50 dark:bg-[#0B0F17] bg-dot-grid overflow-hidden transition-colors duration-300">
+            <div className="w-full h-dvh max-h-dvh flex flex-col bg-slate-50 dark:bg-[#0B0F17] bg-dot-grid overflow-hidden overscroll-none transition-colors duration-300">
                 {/* Top Window Header Bar */}
                 <header className="flex flex-col md:flex-row md:items-center md:justify-between gap-2 px-3 sm:px-4 py-2 border-b border-slate-200 dark:border-slate-800/90 bg-white/90 dark:bg-[#11161F]/95 backdrop-blur-md select-none z-10">
                     {/* Baris Atas: Traffic Lights + Session Path + Action Controls */}
@@ -473,7 +473,10 @@ export function TerminalWindow() {
                 </header>
 
                 {/* Main Scrollable Terminal Body (Left-Aligned Container) */}
-                <div ref={scrollContainerRef} className="flex-1 overflow-y-auto px-3 sm:px-6 py-4 sm:py-6">
+                <div
+                    ref={scrollContainerRef}
+                    className="flex-1 min-h-0 overflow-y-auto overscroll-contain px-3 sm:px-6 py-4 sm:py-6"
+                >
                     <div className="max-w-full w-full text-left space-y-5 sm:space-y-6">
                         {/* Startup Note: Rekomendasi Laptop vs HP */}
                         <AnimatePresence initial={false}>
